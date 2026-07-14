@@ -1,19 +1,39 @@
 import { Outlet } from 'react-router-dom';
+import { Navbar } from './Navbar';
+import { Sidebar } from './Sidebar';
 
 /**
- * DashboardLayout — the app shell that wraps every page.
+ * DashboardLayout — the main app shell.
  * 
- * Will contain: Sidebar (left) + Navbar (top) + main content area.
- * For now, just renders the child route via <Outlet />.
- * We'll build the full layout in Phase 8.
+ * Structure:
+ * ┌──────────────────────────────────────┐
+ * │              Navbar                  │
+ * ├──────────┬───────────────────────────┤
+ * │          │                           │
+ * │ Sidebar  │     Page Content          │
+ * │          │     (<Outlet />)          │
+ * │          │                           │
+ * └──────────┴───────────────────────────┘
+ * 
+ * <Outlet /> is React Router's way of rendering child routes.
+ * Whatever page matches the current URL gets rendered here.
  */
 export function DashboardLayout() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navbar and Sidebar will be added in Phase 8 */}
-      <main>
-        <Outlet />
-      </main>
+      {/* Top navbar — full width */}
+      <Navbar />
+
+      {/* Body — sidebar + content side by side */}
+      <div className="flex">
+        {/* Left sidebar — navigation */}
+        <Sidebar />
+
+        {/* Main content area — renders the matched page */}
+        <main className="flex-1 overflow-auto">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }

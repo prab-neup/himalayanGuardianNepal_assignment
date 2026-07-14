@@ -1,6 +1,6 @@
-import type { TicketStatus, TicketPriority } from '@/types/ticket';
-import type { Role } from '@/types/user';
-import type { PermissionAction } from '@/types/permission';
+import type { TicketStatus, TicketPriority } from '../types/ticket';
+import type { Role } from '../types/user';
+import type { PermissionAction } from '../types/permission';
 
 /**
  * Human-readable labels for ticket statuses.
