@@ -27,19 +27,6 @@ This project requires Node.js (v18 or newer recommended).
 4. **Open the app**
    Navigate to `http://localhost:5173` in your browser.
 
-## 🛠️ Tech Stack & Libraries Used
-
-This project relies on a carefully selected modern stack to meet the requirements efficiently:
-
-- **React + TypeScript + Vite:** Fast development, strict type safety, and blazing fast builds.
-- **Tailwind CSS:** For rapid, utility-first UI styling and responsive design.
-- **Zustand:** For lightweight, boilerplate-free global state management (Session and Permissions).
-- **React Query (`@tanstack/react-query`):** For asynchronous data fetching, caching, and cache-invalidation.
-- **React Router (`react-router-dom`):** For client-side routing and layout management.
-- **Axios + Axios Mock Adapter:** To simulate a real backend environment with network latency without needing a real server.
-- **React Hook Form + Zod:** For performant, type-safe form state management and validation.
-- **Recharts:** For rendering the Analytics charts (SVG-based, responsive data visualization).
-- **Lucide React:** For clean, consistent SVG iconography.
 
 ## 🛠️ Tech Stack & Libraries Used
 
@@ -54,6 +41,7 @@ This project relies on a carefully selected modern stack to meet the requirement
 - **React Hook Form + Zod:** For performant, type-safe form state management and validation.
 - **Recharts:** For rendering the Analytics charts (SVG-based, responsive data visualization).
 - **Lucide React:** For clean, consistent SVG iconography.
+I used react query and axios here because thats how we do in real world scenerio also i used mock adapter just to simulate which might make code look messy
 
 ## 🧪 How to Test Different Users and Organizations
 
@@ -70,7 +58,7 @@ The application features a built-in **Session Simulator** accessible from the to
 ## 🔐 How Permissions are Stored and Updated
 
 - **Single Source of Truth:** Permissions are stored as a mutable 2D matrix (`Record<Role, Record<PermissionAction, boolean>>`) in a **Zustand store** (`src/store/permissionStore.ts`).
-- **Data, Not Code:** There are exactly zero hardcoded role checks (e.g., `if (role === 'admin')`) in the UI components. Every action is gated by checking the permission matrix: `if (can('delete_tickets'))`.
+- **Data,:** There are exactly zero hardcoded role checks (e.g., `if (role === 'admin')`) in the UI components. Every action is gated by checking the permission matrix: `if (can('delete_tickets'))`.
 - **Runtime Updates:** Super Admins can visit the **Permissions** page to toggle checkboxes in the matrix. Because the entire application uses the `usePermission()` hook (which subscribes to the Zustand store), any change made in the matrix immediately triggers reactive re-renders across the app. Buttons will vanish, routes will be blocked, and sidebar links will disappear instantly without a page reload.
 
 ## ✅ Key Behaviors Demonstrated
@@ -104,6 +92,9 @@ The application features a built-in **Session Simulator** accessible from the to
 2. **Full CRUD for Staff & Organizations:** The assignment emphasized ticket management and permissions. While you can view Staff and Organizations, creating/editing/deleting them was omitted to focus on the core requirements.
 3. **Advanced Filtering/Sorting:** The ticket table does not currently support column sorting or advanced filtering (e.g., searching by title or filtering by specific statuses).
 4. **Toast Notifications:** While operations like ticket creation and deletion succeed instantly via React Query invalidation, adding a toast notification system (e.g., `react-hot-toast`) would improve UX by providing explicit success feedback.
+
+5. **Mock Adapter:** 
+I used react query and axios here because thats how we do in real world scenerio also i used mock adapter just to simulate which might make code look messy
 
 ---
 
