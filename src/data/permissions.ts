@@ -1,4 +1,4 @@
-import type { PermissionMatrix } from '@/types/permission';
+import type { PermissionMatrix } from '../types/permission';
 
 /**
  * Default permission matrix — this is what the assignment specifies.

@@ -1,4 +1,4 @@
-import type { Ticket } from '@/types/ticket';
+import type { Ticket } from '../types/ticket';
 
 /**
  * Seed data: Tickets across all 3 organizations.
